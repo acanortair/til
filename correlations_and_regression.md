@@ -57,7 +57,9 @@ penguins |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-2-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-3-1.png"
+data-fig-align="center" width="672" />
 
 ``` r
 penguins |>
@@ -119,7 +121,9 @@ chinstrap_with_z |>
 
     `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-5-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-6-1.png"
+data-fig-align="center" width="672" />
 
 Converting all original observations into z scores leaves the normal
 shape intact but not the units of measurement (that’s the value!). If
@@ -149,7 +153,9 @@ chinstrap |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-6-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-7-1.png"
+data-fig-align="center" width="672" />
 
 It looks like there is a linear relation with, penguins that are bigger,
 having longer flippers. Now, we can calculate the Pearson correlation
@@ -258,7 +264,9 @@ chinstrap_sd |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-9-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-10-1.png"
+data-fig-align="center" width="672" />
 
 The are both centered at 0. Let’s check their means:
 
@@ -325,7 +333,9 @@ chinstrap_sd |>
 
     `geom_smooth()` using formula = 'y ~ x'
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-13-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-14-1.png"
+data-fig-align="center" width="672" />
 
 One line, the blue one, is showing the regression model. The other line,
 the red one, is showing the correlation coefficient.
@@ -412,7 +422,9 @@ as_draws_df(model1) |>
 
     Warning: Removed 1 rows containing missing values (`stat_slabinterval()`).
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-17-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-18-1.png"
+data-fig-align="center" width="672" />
 
 ## Bounded at 1?
 
@@ -461,7 +473,9 @@ plot_regression <-tibble(x, y) |>
 plot_principal + plot_regression
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-18-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-19-1.png"
+data-fig-align="center" width="672" />
 
 Their point is that given the above scatterplot, the regression line
 works better for estimating the average of y for any given value of x.
@@ -494,7 +508,9 @@ d %>%
           lower = list(continuous = wrap("smooth", size = 1/2, alpha = 1/2, se = FALSE)))
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-19-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-20-1.png"
+data-fig-align="center" width="672" />
 
 Let’s double check.
 
@@ -572,7 +588,9 @@ fitted(model2, newdata = new_data) |>
        y = "y simulated (standardized)")
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-23-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-24-1.png"
+data-fig-align="center" width="672" />
 
 So, let’s plot that correlation.
 
@@ -584,7 +602,9 @@ as_draws_df(model2) |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-24-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-25-1.png"
+data-fig-align="center" width="672" />
 
 Now, let’s look at the ones with different variance.
 
@@ -636,7 +656,9 @@ as_draws_df(model3) |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-27-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-28-1.png"
+data-fig-align="center" width="672" />
 
 In both cases, the slope is almost the same but notice how in the second
 model, our estimate for the slope goes beyond 1.
@@ -742,7 +764,9 @@ as_draws_df(model4) |>
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-30-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-31-1.png"
+data-fig-align="center" width="672" />
 
 This can be further extended to a include the other variable.
 
@@ -818,7 +842,9 @@ as_draws_df(model5) |>
 
     Warning: Dropping 'draws_df' class as required metadata was removed.
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-33-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-34-1.png"
+data-fig-align="center" width="672" />
 
 Interesting, the correlation between r and z respects the boundaries. He
 says “The multivariate method does not suffer from this problem.
@@ -879,7 +905,9 @@ crossing(eta = c(0.5, 1, 2, 3, 4, 5, 6),
   theme_minimal()
 ```
 
-![](correlations_and_regression_files/figure-commonmark/unnamed-chunk-34-1.png)
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-35-1.png"
+data-fig-align="center" width="672" />
 
 Solomon in his workshop materials continues “Thus, if you want a
 non-regularizing prior on $\rho$, fit a bivariate model and set
