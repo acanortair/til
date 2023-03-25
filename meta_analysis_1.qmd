@@ -1,0 +1,15 @@
+---
+title: "TIL: Correlations and regression"
+date: "03-25-2023"
+format: html
+self-contained: true
+---
+  
+```{r, warning=F, message=F}
+
+library(tidyverse)
+library(patchwork)
+set.seed(1234)
+
+```
+

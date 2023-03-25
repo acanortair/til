@@ -1,10 +1,7 @@
 ---
 title: "TIL: Correlation and regression"
 date: "03-25-2023"
-format:
-  html:
-    anchor-sections: false
-self-contained: true
+format: gfm
 ---
 
 ```{r, warning=F, message=F}
@@ -18,6 +15,11 @@ library(brms)
 library(tidybayes)
 set.seed(1234)
 
+```
+
+```{r, echo = F, cache = F}
+knitr::opts_chunk$set(fig.retina = 2.5)
+knitr::opts_chunk$set(fig.align = "center")
 ```
 
 A while ago I read something in Andrew Gelman's blog about correlation and regression. The post is titled [How to think about correlation? It's the slope of the regression when x and y have been standardized](https://statmodeling.stat.columbia.edu/2020/12/03/how-to-think-about-correlation-its-the-slope-of-the-regression-when-x-and-y-have-been-standardized/). He says "I replied that the way I think about the correlation is that it's the slope of the regression of y on x if the two variables have been standardized to have the same sd. And I pointed him to section 12.3 of Regression and Other Stories, which discusses this point."
