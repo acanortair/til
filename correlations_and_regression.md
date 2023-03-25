@@ -909,6 +909,31 @@ crossing(eta = c(0.5, 1, 2, 3, 4, 5, 6),
 src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-35-1.png"
 data-fig-align="center" width="672" />
 
+I like the way Richard McElreath visualizes this distribution in
+Statistical Rethinking, p. 443. He does something like this but better.
+
+``` r
+crossing(eta = c(0.5, 1, 2, 4),
+         K   = rep(2, 4)) |>
+  mutate(strip = str_c("eta==", eta),
+         eta_fill = as.character(eta)) |>
+  ggplot(aes(dist = "lkjcorr_marginal", arg1 = K, arg2 = eta, fill = eta_fill)) +
+  stat_halfeye(.width = .95, alpha = 0.6) +
+  coord_flip() +
+  scale_fill_manual(values = c("#f2df91", "#9be9a8", "#d9a7a7", "#78a2c0")) +
+  labs(title = expression("Probability density for K = 2 and "*eta),
+       fill = expression(eta),
+       x = "density",
+       y = "correlation") +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank()) +
+  theme_minimal()
+```
+
+<img
+src="correlations_and_regression_files/figure-commonmark/unnamed-chunk-36-1.png"
+data-fig-align="center" width="672" />
+
 Solomon in his workshop materials continues “Thus, if you want a
 non-regularizing prior on $\rho$, fit a bivariate model and set
 $\eta$=1. If you want to estimate multiple correlations and you do not
