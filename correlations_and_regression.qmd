@@ -98,6 +98,55 @@ Converting all original observations into z scores leaves the normal shape intac
 
 If we take a look at the table (usually in the back of a stats book), we'll see that at 1 standard deviation we cover 68% of the curve (34.1% + 34.1%), at 2 standard deviation we cover 95% (47.7% + 47.7%), etc. This is known as the [empirical rule](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule)
 
+The way Gelman et al. (2020) write about this is: "We write the normal distribution with $\mu$ and standard devitation $\sigma$ as N($\mu$, $\sigma^2$). Approximately 50% of the mass of this distribution falls in the range $\mu$ ± 0.67$\sigma$, 68% in the range $\mu$ ± $\sigma$, 95% in the range $\mu$ ± 2$\sigma$, and 99.7% in the range $\mu$ ± 3$\sigma$...To put it another way, if you take a random draw from a normal distribution, there is a 50% change it will fall within 0.67 standard deviations from the mean, a 68% change it will fall within 1 standard deviation from the mean, and so forth." (p. 42).
+
+And they show this graph:
+
+```{r}
+
+data_norm <- tibble(x = seq(from = -4, to = 4, by = 0.01),
+            density = dnorm(x, mean = 0, sd = 1))
+
+data_norm |>
+  ggplot(aes(x = x, y = density, ymin = 0, ymax = density)) +
+  geom_ribbon(data = . %>% filter(x >= -3 & x <= 3),
+              fill = "#6f7f7e") +
+  geom_ribbon(data = . %>% filter(x >= -2 & x <= 2),
+              fill = "#b1b1b1") +
+  geom_ribbon(data = . %>% filter(x >= -1 & x <= 1),
+              fill = "#cccccc") +
+  geom_line() +
+  annotate(geom = "text",
+           x = c(-1.5, 0, 1.5),
+           y = c(0.05, 0.15, 0.05),
+           label = c("13.5%", "68%", "13.5%")) +
+  scale_x_continuous(NULL, breaks = -3:3, expand = c(0, 0)) +
+  scale_y_continuous(NULL, breaks = NULL, expand = expansion(mult = c(0, 0.05))) +
+  labs(subtitle = "normal distribution") +
+  theme_minimal()
+
+
+
+```
+It turns out people get those percentages in r using pnorm(). To get the value within one standard deviation, we use:
+
+```{r}
+pnorm(1) - pnorm(-1)
+```
+To get the value between 1 and 2 standard deviations, we use:
+
+```{r}
+
+pnorm(-1) - pnorm(-2)
+pnorm(2) - pnorm(1)
+
+```
+To get the value, within 0.67 standard deviations, we use
+
+```{r}
+pnorm(0 + 0.67) - pnorm(0 - 0.67)
+```
+
 ## Correlation
 
 Now, let's look at the correlation between flipper length (mm) and body mass (grams) in the Chinstrap penguins. First let's visualize the data
