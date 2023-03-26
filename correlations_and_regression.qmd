@@ -1,7 +1,9 @@
 ---
 title: "TIL: Correlation and regression"
 date: "03-25-2023"
-format: gfm
+format:
+  html: default
+  gfm: default
 ---
 
 ```{r, warning=F, message=F}
