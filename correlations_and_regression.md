@@ -142,9 +142,9 @@ rule](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule)
 The way Gelman et al. (2020) write about this is: “We write the normal
 distribution with $\mu$ and standard devitation $\sigma$ as N($\mu$,
 $\sigma^2$). Approximately 50% of the mass of this distribution falls in
-the range $\mu$ ± 0.67$\sigma$, 68% in the range $\mu$ ± $\sigma$, 95%
-in the range $\mu$ ± 2$\sigma$, and 99.7% in the range $\mu$ ±
-3$\sigma$…To put it another way, if you take a random draw from a normal
+the range $\mu$ ± $0.67\sigma$, 68% in the range $\mu$ ± $\sigma$, 95%
+in the range $\mu$ ± $2\sigma$, and 99.7% in the range $\mu$ ±
+$3\sigma$…To put it another way, if you take a random draw from a normal
 distribution, there is a 50% change it will fall within 0.67 standard
 deviations from the mean, a 68% change it will fall within 1 standard
 deviation from the mean, and so forth.” (p. 42).
